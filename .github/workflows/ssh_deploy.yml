@@ -11,5 +11,5 @@ jobs:
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
-        proxy_key: ${{ secrets.PROXY_KEY }}
+        key: ${{ secrets.PROXY_KEY }}
         script: whoami
