@@ -6,10 +6,17 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@v1.0.3
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.PROXY_KEY }}
-        script: whoami
+        script: |
+          scp -r . ${{ secrets.USERNAME }}@${{ secrets.HOST }}:~
+          cd ~
+          make
+          ./bin/program
