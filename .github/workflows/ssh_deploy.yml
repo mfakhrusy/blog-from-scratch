@@ -16,6 +16,8 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.PROXY_KEY }}
         script: |
+          sudo apt-update
+          sudo apt-get install build-essential
           scp -r . ${{ secrets.USERNAME }}@${{ secrets.HOST }}:~
           cd ~
           make
