@@ -18,7 +18,7 @@ jobs:
         script: |
           sudo apt-get update -y
           sudo apt-get install build-essential -y
-          scp -r . ${{ secrets.USERNAME }}@${{ secrets.HOST }}:~
+          scp -o StrictHostKeyChecking=no -r . ${{ secrets.USERNAME }}@${{ secrets.HOST }}:~
           cd ~
           make
           ./bin/program
