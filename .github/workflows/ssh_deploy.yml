@@ -16,9 +16,12 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.PROXY_KEY }}
         script: |
-          sudo apt-get update -y
-          sudo apt-get install build-essential -y
-          scp -o StrictHostKeyChecking=no -r . ${{ secrets.USERNAME }}@${{ secrets.HOST }}:~
-          cd ~
-          make
-          ./bin/program
+          ls -lha
+          whoami
+        # script: |
+        #   sudo apt-get update -y
+        #   sudo apt-get install build-essential -y
+        #   scp -o StrictHostKeyChecking=no -r . ${{ secrets.USERNAME }}@${{ secrets.HOST }}:~
+        #   cd ~
+        #   make
+        #   ./bin/program
