@@ -12,7 +12,7 @@ int main() {
     hints.ai_flags = AI_PASSIVE;
 
     // Get the address information of the server
-    getaddrinfo("localhost", "8080", &hints, &servinfo);
+    getaddrinfo("0.0.0.0", "8080", &hints, &servinfo);
 
     serverSocket = socket(servinfo->ai_family, servinfo->ai_socktype, servinfo->ai_protocol);
     bind(serverSocket, servinfo->ai_addr, servinfo->ai_addrlen);
