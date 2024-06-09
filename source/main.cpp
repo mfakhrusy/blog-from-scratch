@@ -29,7 +29,8 @@ int main() {
 
     while(true) {
         clientSocket = accept(serverSocket, (struct sockaddr*)&clientAddr, &clientAddrSize);
-        send(clientSocket, "Hello, World!", 13, 0);
+        const char* httpResponse = "HTTP/1.1 200 OK\nContent-Length: 13\nContent-Type: text/plain\n\nHello, World!";
+        send(clientSocket, httpResponse, 13, 0);
         close(clientSocket);
     }
     
